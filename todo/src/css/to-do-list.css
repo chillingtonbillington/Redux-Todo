@@ -1,0 +1,7 @@
+.incomplete-task{
+    font-size:24px;
+}
+.complete-task{
+    font-size:28px;
+    color:red;
+}

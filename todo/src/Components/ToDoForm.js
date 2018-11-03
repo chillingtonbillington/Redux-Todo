@@ -1,15 +1,12 @@
 import React from 'react';
-import {updateToDoTask} from '../action';
+import {addToDo, deleteCompletedTask} from '../action';
 import {connect} from 'react-redux';
 
 class ToDoForm extends React.Component{
     constructor(){
         super()
         this.state = {
-            todos : [{
-                todo : '',
-                
-            }]
+            todo : ''
         }
     }    
     inputHandler = (event) =>{
@@ -17,19 +14,25 @@ class ToDoForm extends React.Component{
     }
     submitHandler = (event) =>{
         event.preventDefault()
-        this.props.updateToDoTask(this.state.todo);
+        this.props.addToDo(this.state.todo);
+        
+    }
+    deleteHandler = (event) =>{
+        event.preventDefault()
+        this.props.deleteCompletedTask(event.target.id)
     }
     render(){  
         return(
             <div className = 'to-do-form-container'>
-                <form onSubmit = {this.submitHandler}>
+                <form >
                     <input 
                         type = 'text' 
                         name = 'todo'
                         value = {this.state.todo}
                         onChange = {this.inputHandler}
                     />
-                    <button type = 'submit' className = 'submit-button'>Add to do</button>
+                    <button onClick = {this.submitHandler } type = 'submit' className = 'add-button'>Add to do</button>
+                    <button onClick = {this.deleteHandler} className = 'delete-button'>Delete completed to dos</button>
                 </form>
             </div>
         )
@@ -39,4 +42,4 @@ class ToDoForm extends React.Component{
 const mapStateToProps = () => {
     return {};
 };
-export default connect (mapStateToProps)(ToDoForm);
+export default connect (mapStateToProps, {addToDo, deleteCompletedTask})(ToDoForm);
