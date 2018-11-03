@@ -1,0 +1,10 @@
+.App{
+    max-width:500px;
+    width:100%;
+    margin:50px auto;
+    background-image: url('https://static.vecteezy.com/system/resources/previews/000/158/965/non_2x/vector-old-grunge-paper-texture-background.jpg');
+  
+    border: 1px solid #D4B48C;
+    border-radius:2px;
+
+}

@@ -11,8 +11,8 @@ class ToDoList extends React.Component{
     }
     render(){
         return(
-            <div>
-                <h1>To do list:</h1>
+            <div className = 'list-container'>
+                <h1>To Do List:</h1>
                     <div>
                         {this.props.todos.map(item =>{
                             return(

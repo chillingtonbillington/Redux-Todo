@@ -27,7 +27,7 @@ export default (state = initialState, action) =>{
             return Object.assign({}, state, {todos : updatedArray});
         case DELETE_COMPLETE:
             const deleteArray = state.todos.filter(item =>{
-                return item.id !== action.payload
+                return item.completed === false
             })
             return Object.assign({}, state, {todos: deleteArray})      
         default:
